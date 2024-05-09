@@ -1,30 +1,31 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports = (sequelize,DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Sensor = sequelize.define(
         "Sensor",
         {
-            id_sensor:{
-                type:DataTypes.INTERGER(11),
+            id_sensor: {
+                type: DataTypes.INTEGER(11),
                 primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
-                unique:true,
+                unique: true,
             },
-            localizacao:{
+            localizacao: {
                 type: DataTypes.STRING(255),
-                allowNull:false,
+                allowNull: false,
             },
-            id_criatorio:{
+            id_criatorio: {
                 type: DataTypes.INTEGER,
-                allowNull: false, // Define se o campo pode ser nulo ou não
+                allowNull: false,
                 references: {
-                 model: 'Criatorio', // Nome da tabela referenciada
-                 key: 'id' // Nome da chave primária na tabela referenciada
-            }
+                    model: 'Criatorio', // Nome da tabela referenciada
+                    key: 'id' // Nome da chave primária na tabela referenciada
+                },
+                foreignKey: true // Define este campo como uma chave estrangeira
+            },
         },
-    },
-    {freezeTableName: true, Timestamps: false}
+        { freezeTableName: true, timestamps: false }
     );
     return Sensor;
 }

@@ -18,7 +18,7 @@ module.exports = (Sequelize, DataTypes) => {
         allowNull: false,
       },
       senha: {
-        type: DataTypes.INTEGER(8),
+        type: DataTypes.STRING, // Alterado para STRING para armazenar senhas como strings
         allowNull: false,
       },
       // data_cadastro: {

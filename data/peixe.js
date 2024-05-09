@@ -1,34 +1,34 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports =(Sequelize,DataTypes) => {
+module.exports = (Sequelize, DataTypes) => {
     const Peixe = Sequelize.define(
-        "Peixes",
+        "Peixe",
         {
-            id_peixe:{
-                type:DataTypes.INTERGER(11),
-                primarykey:true,
-                allowNull:false,
-                autoIncrement:true,
-                unique:true,
+            id_peixe: {
+                type: DataTypes.INTEGER(11),
+                primaryKey: true,
+                allowNull: false,
+                autoIncrement: true,
+                unique: true,
             },
-            especie:{
+            especie: {
                 type: DataTypes.STRING(255),
-                allowNull:false,
+                allowNull: false,
             },
-            idade:{
-                type:DataTypes.INTERGER(11),
-                allowNull:false,
+            idade: {
+                type: DataTypes.INTEGER(11),
+                allowNull: false,
             },
             id_criatorio: {
                 type: DataTypes.INTEGER(11),
-                allowNull: false, 
+                allowNull: false,
                 references: {
                     model: 'Criatorio', // Nome da tabela referenciada
                     key: 'id' // Nome da chave primária na tabela referenciada
                 }
             },
         },
-        {freezeTableName: true, Timestamps: false}
+        { freezeTableName: true, timestamps: false }
     );
     return Peixe;
 }

@@ -1,28 +1,27 @@
-const ICriatorioRepository = require("../interfaces/i_criatorio_repository");
 const { Criatorio } = require("../data/dbContext");
-const criatorio = require("../data/criatorio");
 
-class Criatorio extends ICriatorioRepository {
-    constructor() {
-        super();
+class CriatorioRepository {
+    async adicionarCriatorio(criatorio) {
+        try {
+            const novoCriatorio = await Criatorio.create({
+                nome: criatorio.nome,
+                localizacao: criatorio.localizacao,
+                capacidade_maxima: criatorio.capacidade_maxima,
+            });
+            return novoCriatorio;
+        } catch (error) {
+            throw new Error('Erro ao adicionar criatório: ' + error.message);
+        }
     }
 
-    adicionarUsuario = async (Criatorio) => {
-        const novoCriatorio = await Criatorio.create({
-            nome:criatorio.nome,
-            localizacao: criatorio.localizacao,
-            capacidade_maxima: criatorio.capacidade_maxima,
-            
-        });
+    async buscarCriatorioPorId(id) {
+        try {
+            const criatorio = await Criatorio.findByPk(id);
+            return criatorio;
+        } catch (error) {
+            throw new Error('Erro ao buscar criatório por ID: ' + error.message);
+        }
     }
-
-    get = async (codigo) => {
-        throw new Error("Esse método não pode ser chamado")
-    }
-
-    getAll = async () => {
-        throw new Error("Esse método não pode ser chamado")
-    };
 }
 
-module.exports = UsuarioRepository     
+module.exports = CriatorioRepository;

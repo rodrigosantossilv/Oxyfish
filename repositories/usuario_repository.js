@@ -6,25 +6,35 @@ class UsuarioRepository extends IUsuarioRepository {
     super();
   }
 
-  adicionarUsuario = async (usuario) => {
-    const novoUsuario = await Usuario.create(usuario);
-  };
+  async adicionarUsuario(usuario) {
+    try {
+      const novoUsuario = await Usuario.create(usuario);
+      return novoUsuario;
+    } catch (error) {
+      throw new Error("Erro ao adicionar usuário: " + error.message);
+    }
+  }
 
-  get = async (codigo) => {
-    let usuario = await Usuario.findOne({
-      raw: true,
-      where: { codigo: codigo },
-    });
-    return usuario;
-  };
+  async get(codigo) {
+    try {
+      const usuario = await Usuario.findOne({
+        raw: true,
+        where: { codigo: codigo },
+      });
+      return usuario;
+    } catch (error) {
+      throw new Error("Erro ao obter usuário: " + error.message);
+    }
+  }
 
-  getAll = async () => {
-    let usuarios = Usuario.findAll({
-      raw: true,
-    });
-
-    return usuarios;
-  };
+  async getAll() {
+    try {
+      const usuarios = await Usuario.findAll({ raw: true });
+      return usuarios;
+    } catch (error) {
+      throw new Error("Erro ao obter todos os usuários: " + error.message);
+    }
+  }
 }
 
 module.exports = UsuarioRepository;

@@ -1,21 +1,20 @@
-class ICriatorioRepository {
+class ICriatoriosUsuariosRepository {
     constructor() {
-        if (new.target === ICriatorioRepository) {
-            throw new Error("A interface ICriatorioRepository não pode ser instanciada.");
-        }
+      if (new.target === ICriatoriosUsuariosRepository) {
+        throw new Error(
+          "A interface ICriatoriosUsuariosRepository não pode ser instanciada."
+        );
+      }
     }
-
-    adicionarProduto = async (Criatorio) => {
-        throw new Error("Esse método não pode ser chamado")
+  
+    async adicionarCriatorioUsuario(idCriatorio, periodo, idUsuario, idSensor) {
+      throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
-
-    get = async (codigo) => {
-        throw new Error("Esse método não pode ser chamado")
+  
+    async buscarCriatorioUsuarioPorId(id) {
+      throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
-
-    getAll = async () => {
-        throw new Error("Esse método não pode ser chamado")
-    };
-}
-
-module.exports = IProdutoRepository     
+  }
+  
+  module.exports = ICriatoriosUsuariosRepository;
+  
