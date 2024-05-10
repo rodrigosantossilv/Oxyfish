@@ -7,11 +7,11 @@ class ILeituraRepository {
       }
     }
   
-    async adicionarLeitura(idSensor, idTemperatura, idPh, idNivelOxigenio) {
+    async adicionar(idSensor, idTemperatura, idPh, idNivelOxigenio) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   
-    async buscarLeituraPorId(id) {
+    async buscar(id) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   }

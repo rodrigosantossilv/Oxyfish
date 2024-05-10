@@ -1,7 +1,7 @@
 const { Leitura } = require("../data/dbContext");
 
 class LeituraRepository {
-    async adicionarLeitura(idSensor, idTemperatura, idPh, idNivelOxigenio) {
+    async adicionar(idSensor, idTemperatura, idPh, idNivelOxigenio) {
         try {
             const novaLeitura = await Leitura.create({
                 id_sensor: idSensor,
@@ -15,7 +15,7 @@ class LeituraRepository {
         }
     }
 
-    async buscarLeituraPorId(id) {
+    async buscar(id) {
         try {
             const leitura = await Leitura.findByPk(id);
             return leitura;

@@ -1,4 +1,4 @@
-const IUsuarioRepository = require("../interface/i_usuarios_repository");
+const IUsuarioRepository = require("../interface/i_usuario_repository");
 const { Usuario } = require("../data/dbContext");
 
 class UsuarioRepository extends IUsuarioRepository {
@@ -6,7 +6,7 @@ class UsuarioRepository extends IUsuarioRepository {
     super();
   }
 
-  async adicionarUsuario(usuario) {
+  async adicionar(usuario) {
     try {
       const novoUsuario = await Usuario.create(usuario);
       return novoUsuario;

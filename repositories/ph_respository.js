@@ -1,7 +1,7 @@
 const { Ph } = require("../data/dbContext");
 
 class PhRepository {
-    async adicionarPh(valor) {
+    async adicionar(valor) {
         try {
             const novoPh = await Ph.create({ valor });
             return novoPh;
@@ -10,7 +10,7 @@ class PhRepository {
         }
     }
 
-    async buscarPhPorId(id) {
+    async buscar(id) {
         try {
             const ph = await Ph.findByPk(id);
             return ph;

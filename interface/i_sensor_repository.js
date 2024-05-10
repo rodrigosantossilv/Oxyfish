@@ -7,11 +7,11 @@ class ISensorRepository {
       }
     }
   
-    async adicionarSensor(localizacao, idCriatorio) {
+    async adicionar(localizacao, idCriatorio) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   
-    async buscarSensorPorId(id) {
+    async buscar(id) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   }

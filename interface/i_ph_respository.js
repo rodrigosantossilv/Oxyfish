@@ -7,11 +7,11 @@ class IPhRepository {
       }
     }
   
-    async adicionarPh(valor) {
+    async adicionar(valor) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   
-    async buscarPhPorId(id) {
+    async buscar(id) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   }

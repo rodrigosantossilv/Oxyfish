@@ -1,7 +1,7 @@
 const { Sensor } = require("../data/dbContext");
 
 class SensorRepository {
-    async adicionarSensor(localizacao, idCriatorio) {
+    async adicionar(localizacao, idCriatorio) {
         try {
             const novoSensor = await Sensor.create({
                 localizacao,
@@ -13,7 +13,7 @@ class SensorRepository {
         }
     }
 
-    async buscarSensorPorId(id) {
+    async buscar(id) {
         try {
             const sensor = await Sensor.findByPk(id);
             return sensor;

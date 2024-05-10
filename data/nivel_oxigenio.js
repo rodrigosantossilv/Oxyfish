@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize,DataTypes) => {
-    const Nivel_Oxigenio = Sequelize.define(
+    const NivelOxigenio = Sequelize.define(
         "Nivel_Oxigenio",
         {
             id_nivel_oxigenio:{
@@ -17,5 +17,5 @@ module.exports = (Sequelize,DataTypes) => {
             },
         },
         {freezeTablenName: true, Timestamps: false}
-    ); return Nivel_Oxigenio;
+    ); return NivelOxigenio;
 }

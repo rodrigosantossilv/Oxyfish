@@ -7,11 +7,11 @@ class IPeixeRepository {
       }
     }
   
-    async adicionarPeixe(especie, idade, idCriatorio) {
+    async adicionar(especie, idade, idCriatorio) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   
-    async buscarPeixePorId(id) {
+    async buscar(id) {
       throw new Error("Este método deve ser implementado pelas classes concretas.");
     }
   }

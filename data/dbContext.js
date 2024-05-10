@@ -23,6 +23,8 @@ sequelize
   });
 
 const Usuario = require("./usuario")(sequelize, DataTypes);
+const Criatorio = require("./criatorio")(sequelize, DataTypes);
+const CriatorioUsuario = require("./criatorio_usuario")(sequelize, DataTypes);
 
 sequelize
   .sync({ alter: true })
@@ -33,4 +35,12 @@ sequelize
     console.log("Erros: " + err);
   });
 
-module.exports = { Usuario };
+Criatorio.hasMany(CriatorioUsuario, {
+  foreingKey: "id_criatorio",
+});
+
+Usuario.hasMany(CriatorioUsuario, {
+  foreingKey: "id_usuario",
+});
+
+module.exports = { Usuario, Criatorio, CriatorioUsuario };

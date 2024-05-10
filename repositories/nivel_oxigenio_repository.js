@@ -1,7 +1,7 @@
 const { Nivel_Oxigenio } = require("../data/dbContext");
 
 class NivelOxigenioRepository {
-    async adicionarNivelOxigenio(valor) {
+    async adicionar(valor) {
         try {
             const novoNivelOxigenio = await Nivel_Oxigenio.create({ valor });
             return novoNivelOxigenio;
@@ -10,7 +10,7 @@ class NivelOxigenioRepository {
         }
     }
 
-    async buscarNivelOxigenioPorId(id) {
+    async buscar(id) {
         try {
             const nivelOxigenio = await Nivel_Oxigenio.findByPk(id);
             return nivelOxigenio;

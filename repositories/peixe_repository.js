@@ -1,7 +1,7 @@
 const { Peixe } = require("../data/dbContext");
 
 class PeixeRepository {
-    async adicionarPeixe(especie, idade, idCriatorio) {
+    async adicionar(especie, idade, idCriatorio) {
         try {
             const novoPeixe = await Peixe.create({
                 especie,
@@ -14,7 +14,7 @@ class PeixeRepository {
         }
     }
 
-    async buscarPeixePorId(id) {
+    async buscar(id) {
         try {
             const peixe = await Peixe.findByPk(id);
             return peixe;
