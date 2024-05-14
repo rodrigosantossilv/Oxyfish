@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Sensor = sequelize.define(
     "Sensor",
     {
-      id_sensor: {
+      idSensor: {
         type: DataTypes.INTEGER(11),
         primaryKey: true,
         allowNull: false,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      id_criatorio: {
+      idCriatorio: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -24,3 +24,4 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Sensor;
 };
+

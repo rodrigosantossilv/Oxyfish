@@ -1,15 +1,14 @@
 const dbConfig = require("../config/dbConfig");
-
 const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
-  dbConfig.DB,
-  dbConfig.USERNAME,
-  dbConfig.PASSWORD,
+  dbConfig.db,
+  dbConfig.username,
+  dbConfig.password,
   {
-    host: dbConfig.HOST,
-    dialect: dbConfig.DIALECT,
-    port: dbConfig.PORT,
+    host: dbConfig.host,
+    dialect: dbConfig.dialect,
+    port: dbConfig.port,
   }
 );
 
@@ -18,29 +17,29 @@ sequelize
   .then(() => {
     console.log("Conectado com sucesso!");
   })
-  .catch((erro) => {
-    console.log("Erro ao tentar conecta: " + erro);
+  .catch((error) => {
+    console.log("Erro ao tentar conectar: " + error);
   });
 
 const Usuario = require("./usuario")(sequelize, DataTypes);
 const Criatorio = require("./criatorio")(sequelize, DataTypes);
-const CriatorioUsuario = require("./criatorio_usuario")(sequelize, DataTypes);
+const CriatorioUsuario = require("./criatorioUsuario")(sequelize, DataTypes);
 
 sequelize
   .sync({ alter: true })
   .then(() => {
     console.log("Tabela criada com sucesso!");
   })
-  .catch((err) => {
-    console.log("Erros: " + err);
+  .catch((error) => {
+    console.log("Erros: " + error);
   });
 
 Criatorio.hasMany(CriatorioUsuario, {
-  foreingKey: "id_criatorio",
+  foreignKey: "idCriatorio",
 });
 
 Usuario.hasMany(CriatorioUsuario, {
-  foreingKey: "id_usuario",
+  foreignKey: "idUsuario",
 });
 
 module.exports = { Usuario, Criatorio, CriatorioUsuario };

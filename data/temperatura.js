@@ -4,7 +4,7 @@ module.exports = (Sequelize, DataTypes) => {
     const Temperatura = Sequelize.define(
         "Temperatura",
         {
-            id_temperatura: {
+            idTemperatura: {
                 type: DataTypes.INTEGER(11),
                 primaryKey: true,
                 allowNull: false,
@@ -21,3 +21,4 @@ module.exports = (Sequelize, DataTypes) => {
     );
     return Temperatura;
 }
+

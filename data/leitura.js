@@ -1,55 +1,55 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports = (Sequelize,DataTypes) => {
+module.exports = (Sequelize, DataTypes) => {
     const Leitura = Sequelize.define(
         "Leitura",
         {
-            id_leitura:{
-                type:DataTypes.INTEGER(11),
-                primaryKey:true,
-                allowNull:false,
-                autoIncrement:true,
-                unique:true,
+            idLeitura:{
+                type: DataTypes.INTEGER(11),
+                primaryKey: true,
+                allowNull: false,
+                autoIncrement: true,
+                unique: true,
             },
-            data_hora:{
+            dataHora:{
                 type: DataTypes.DATE,
                 defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'), // Define o valor padrão como a data e hora atuais
-                allowNull:false,
+                allowNull: false,
             },
-            id_sensor: {
+            idSensor: {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
                 references: {
-                 model: 'Sensor', // Nome da tabela referenciada
-                 key: 'id' // Nome da chave primária na tabela referenciada
-              }
-            },
-            id_temperatura:{
-                type: DataTypes.INTEGER(11),
-                allowNull:false,
-                references:{
-                    model:'Temperatura',
-                    key:'id'
+                    model: 'Sensor', // Nome da tabela referenciada
+                    key: 'id' // Nome da chave primária na tabela referenciada
                 }
             },
-            id_ph:{
+            idTemperatura:{
                 type: DataTypes.INTEGER(11),
-                allowNull:false,
+                allowNull: false,
                 references:{
-                    model:'Ph',
-                    key:'id'
+                    model: 'Temperatura',
+                    key: 'id'
                 }
             },
-            id_nivel_oxigenio:{
+            idPh:{
                 type: DataTypes.INTEGER(11),
-                allowNull:false,
+                allowNull: false,
                 references:{
-                    model:'Nivel_Oxigenio',
-                    key:'id'
+                    model: 'Ph',
+                    key: 'id'
+                }
+            },
+            idNivelOxigenio:{
+                type: DataTypes.INTEGER(11),
+                allowNull: false,
+                references:{
+                    model: 'Nivel_Oxigenio',
+                    key: 'id'
                 }
             },
         },
-        {freezeTableName: true, Timestamps: false}
+        {freezeTableName: true, timestamps: false}
     );
-    return Criatorio_usuarios;
+    return Leitura;
 }

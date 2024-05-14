@@ -1,6 +1,6 @@
-class ICriatoriosUsuariosRepository {
+class ICriatorioRepository {
     constructor() {
-      if (new.target === ICriatoriosUsuariosRepository) {
+      if (new.target === IcriatorioRepository) {
         throw new Error(
           "A interface ICriatoriosUsuariosRepository não pode ser instanciada."
         );
@@ -16,5 +16,5 @@ class ICriatoriosUsuariosRepository {
     }
   }
   
-  module.exports = ICriatoriosUsuariosRepository;
+  module.exports = ICriatorioRepository;
   

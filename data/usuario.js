@@ -2,7 +2,7 @@ module.exports = (Sequelize, DataTypes) => {
   const Usuario = Sequelize.define(
     "Usuario",
     {
-      id_usuario: {
+      idUsuario: {
         type: DataTypes.INTEGER(11),
         primaryKey: true,
         allowNull: false,
@@ -21,7 +21,7 @@ module.exports = (Sequelize, DataTypes) => {
         type: DataTypes.STRING, // Alterado para STRING para armazenar senhas como strings
         allowNull: false,
       },
-      // data_cadastro: {
+      // dataCadastro: {
       //   type: DataTypes.DATE,
       //   defaultValue: _Sequelize.literal("CURRENT_TIMESTAMP"), // Define o valor padrão como a data e hora atuais
       //   allowNull: false,
@@ -31,3 +31,4 @@ module.exports = (Sequelize, DataTypes) => {
   );
   return Usuario;
 };
+

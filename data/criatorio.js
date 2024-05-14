@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Criatorio = sequelize.define(
     "Criatorio",
     {
-      id_criatorio: {
+      idCriatorio: {
         type: DataTypes.INTEGER(11),
         primaryKey: true,
         allowNull: false,
@@ -19,12 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      capacidade_maxima: {
+      capacidadeMaxima: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
     },
-    { freezeTableName: true, Timestamps: false }
+    { freezeTableName: true, timestamps: false }
   );
   return Criatorio;
 };

@@ -2,14 +2,14 @@ module.exports = (sequelize, DataTypes) => {
   const CriatorioUsuario = sequelize.define(
     "CriatorioUsuario",
     {
-      id_criatorio_usuario: {
+      idCriatorioUsuario: {
         type: DataTypes.INTEGER(11),
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,
         unique: true,
       },
-      id_criatorio: {
+      idCriatorio: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -17,12 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      id_usuario: {
+      idUsuario: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
     },
-    { freezeTableName: true, Timestamps: false }
+    { freezeTableName: true, timestamps: false }
   );
   return CriatorioUsuario;
 };

@@ -1,21 +1,22 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports = (Sequelize,DataTypes) => {
+module.exports = (Sequelize, DataTypes) => {
     const NivelOxigenio = Sequelize.define(
-        "Nivel_Oxigenio",
+        "NivelOxigenio",
         {
-            id_nivel_oxigenio:{
-                type:DataTypes.INTEGER(11),
-                allowNull:false,
+            idNivelOxigenio:{
+                type: DataTypes.INTEGER(11),
+                allowNull: false,
                 primaryKey: true,
-                autoIncrement:true,
-                unique:true,
+                autoIncrement: true,
+                unique: true,
             },
             valor:{
                 type: DataTypes.DECIMAL(10, 2), // Decimal com 10 dígitos no total e 2 casas decimais
                 allowNull: false 
             },
         },
-        {freezeTablenName: true, Timestamps: false}
-    ); return NivelOxigenio;
+        { freezeTableName: true, timestamps: false }
+    );
+    return NivelOxigenio;
 }

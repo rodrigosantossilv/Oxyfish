@@ -4,7 +4,7 @@ module.exports = (Sequelize, DataTypes) => {
     const Peixe = Sequelize.define(
         "Peixe",
         {
-            id_peixe: {
+            idPeixe: {
                 type: DataTypes.INTEGER(11),
                 primaryKey: true,
                 allowNull: false,
@@ -19,7 +19,7 @@ module.exports = (Sequelize, DataTypes) => {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
             },
-            id_criatorio: {
+            idCriatorio: {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
                 references: {

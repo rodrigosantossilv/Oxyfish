@@ -4,7 +4,7 @@ module.exports = (Sequelize, DataTypes) => {
     const Ph = Sequelize.define(
         "Ph",
         {
-            id_ph: {
+            idPh: {
                 type: DataTypes.INTEGER(11),
                 primaryKey: true,
                 allowNull: false,

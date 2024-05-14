@@ -1,7 +1,7 @@
-const UsuarioRepository = require("./repositories/usuario_repository");
-const CriatorioRepository = require("./repositories/criatorio_repository");
+const UsuarioRepository = require("./repositories/usuarioRepository");
+const CriatorioRepository = require("./repositories/criatorioRepository");
 
-let usuario_repository = new UsuarioRepository();
+let usuarioRepository = new UsuarioRepository();
 let criatorioRepository = new CriatorioRepository();
 
 // usuario_repository.adicionarUsuario({
