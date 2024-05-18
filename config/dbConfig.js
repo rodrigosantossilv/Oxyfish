@@ -3,6 +3,6 @@ module.exports = {
   USERNAME: "root",
   PASSWORD: "",
   DB: "oxyfish",
-  PORT: "3307",
+  PORT: "3306",
   DIALECT: "mysql",
 };
