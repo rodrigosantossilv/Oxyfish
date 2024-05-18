@@ -1,6 +1,6 @@
 class ICriatorioRepository {
     constructor() {
-      if (new.target === IcriatorioRepository) {
+      if (new.target === ICriatorioRepository) {
         throw new Error(
           "A interface ICriatoriosUsuariosRepository não pode ser instanciada."
         );

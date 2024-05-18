@@ -2,13 +2,13 @@ const dbConfig = require("../config/dbConfig");
 const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
-  dbConfig.db,
-  dbConfig.username,
-  dbConfig.password,
+  dbConfig.DB,
+  dbConfig.USERNAME,
+  dbConfig.PASSWORD,
   {
-    host: dbConfig.host,
-    dialect: dbConfig.dialect,
-    port: dbConfig.port,
+    host: dbConfig.HOST,
+    dialect: dbConfig.DIALECT,
+    port: dbConfig.PORT,
   }
 );
 

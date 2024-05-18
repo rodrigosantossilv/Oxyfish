@@ -1,4 +1,4 @@
-const IUsuarioRepository = require("../interface/i_usuario_repository");
+const IUsuarioRepository = require("../interface/iUsuarioRepository");
 const { Usuario } = require("../data/dbContext");
 
 class UsuarioRepository extends IUsuarioRepository {
@@ -36,5 +36,7 @@ class UsuarioRepository extends IUsuarioRepository {
     }
   }
 }
+
+
 
 module.exports = UsuarioRepository;
