@@ -4,11 +4,11 @@ const CriatorioRepository = require("./repositories/criatorioRepository");
 let usuarioRepository = new UsuarioRepository();
 let criatorioRepository = new CriatorioRepository();
 
-// usuario_repository.adicionarUsuario({
-//   nome: "Teste",
-//   email: "b5a0S@example.com",
-//   senha: "12123 ",
-// });
+usuarioRepository.adicionar({
+   nome: "Teste",
+   email: "b5a0S@example.com",
+   senha: "12123 ",
+});
 
 // criatorioRepository.adicionar({
 //   nome: "Teste",
