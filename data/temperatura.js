@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) => {
     const Temperatura = Sequelize.define(
-        "Temperatura",
+        "temperatura",
         {
             idTemperatura: {
                 type: DataTypes.INTEGER(11),

@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   const Sensor = sequelize.define(
-    "Sensor",
+    "sensor",
     {
       idSensor: {
         type: DataTypes.INTEGER(11),
