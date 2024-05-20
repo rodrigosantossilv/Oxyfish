@@ -24,16 +24,16 @@ CREATE TABLE sensor (
     id INT PRIMARY KEY AUTO_INCREMENT,
     localizacao VARCHAR(255),
     id_criatorio INT,
-    FOREIGN KEY (id_criatorio) REFERENCES criatorios(id)
+    CONSTRAINT fk_sensor_criatorios FOREIGN KEY (id_criatorio) REFERENCES criatorios(id)
 );
 
 -- Tabela criatorios_usuarios (N:N entre criatorios, usuarios e sensor)
-CREATE TABLE criatorios_usuarios (
+CREATE TABLE criatoriosUsuarios (
     id_criatorio INT,
     id_usuario INT,
     PRIMARY KEY (id_criatorio, id_usuario),
-    FOREIGN KEY (id_criatorio) REFERENCES criatorios(id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+    CONSTRAINT fk_criatoriosUsuarios_criatorios FOREIGN KEY (id_criatorio) REFERENCES criatorios(id),
+    CONSTRAINT fk_criatoriosUsuarios_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
 -- Tabela peixes (vinculada apenas ao criatorio)
@@ -43,7 +43,7 @@ CREATE TABLE peixes (
     especie VARCHAR(255),
     idade INT,
     id_criatorio INT,
-    FOREIGN KEY (id_criatorio) REFERENCES criatorios(id)
+    CONSTRAINT fk_peixes_criatorios FOREIGN KEY (id_criatorio) REFERENCES criatorios(id)
 );
 
 -- Tabela temperatura
@@ -72,10 +72,10 @@ CREATE TABLE leituras (
     id_temperatura INT,
     id_ph INT,
     id_nivel_oxigenio INT,
-    FOREIGN KEY (id_sensor) REFERENCES sensor(id),
-    FOREIGN KEY (id_temperatura) REFERENCES temperatura(id),
-    FOREIGN KEY (id_ph) REFERENCES ph(id),
-    FOREIGN KEY (id_nivel_oxigenio) REFERENCES nivel_oxigenio(id)
+    CONSTRAINT fk_leituras_sensor FOREIGN KEY (id_sensor) REFERENCES sensor(id),
+    CONSTRAINT fk_leituras_temperatura FOREIGN KEY (id_temperatura) REFERENCES temperatura(id),
+    CONSTRAINT fk_leituras_ph FOREIGN KEY (id_ph) REFERENCES ph(id),
+    CONSTRAINT fk_leituras_nivel_oxigenio FOREIGN KEY (id_nivel_oxigenio) REFERENCES nivel_oxigenio(id)
 );
 
 -- Inserir dados na tabela usuarios
@@ -98,8 +98,8 @@ INSERT INTO sensor (localizacao, id_criatorio) VALUES
 ('Setor 2', 2),
 ('Setor 1', 3);
 
--- Inserir dados na tabela criatorios_usuarios
-INSERT INTO criatorios_usuarios (id_criatorio, id_usuario) VALUES
+-- Inserir dados na tabela criatoriosUsuarios
+INSERT INTO criatoriosUsuarios (id_criatorio, id_usuario) VALUES
 (1, 1),
 (1, 2),
 (2, 2),
@@ -136,6 +136,7 @@ INSERT INTO leituras (data_hora, id_sensor, id_temperatura, id_ph, id_nivel_oxig
 ('2024-05-20 10:00:00', 1, 1, 1, 1),
 ('2024-05-20 11:00:00', 2, 2, 2, 2),
 ('2024-05-20 12:00:00', 3, 3, 3, 3);
+
 
 
 
