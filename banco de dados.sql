@@ -77,3 +77,66 @@ CREATE TABLE leituras (
     FOREIGN KEY (id_ph) REFERENCES ph(id),
     FOREIGN KEY (id_nivel_oxigenio) REFERENCES nivel_oxigenio(id)
 );
+
+-- Inserir dados na tabela usuarios
+INSERT INTO usuarios (nome, email, senha, data_cadastro) VALUES
+('Alice Santos', 'alice.santos@example.com', 'senha123', '2024-05-01'),
+('Bruno Lima', 'bruno.lima@example.com', 'senha123', '2024-05-02'),
+('Carla Rocha', 'carla.rocha@example.com', 'senha123', '2024-05-03');
+
+-- Inserir dados na tabela criatorios
+INSERT INTO criatorios (nome, localizacao, capacidade_maxima) VALUES
+('Criatório Alpha', 'Rio de Janeiro', 500),
+('Criatório Beta', 'São Paulo', 300),
+('Criatório Gamma', 'Belo Horizonte', 400);
+
+-- Inserir dados na tabela sensor
+INSERT INTO sensor (localizacao, id_criatorio) VALUES
+('Setor 1', 1),
+('Setor 2', 1),
+('Setor 1', 2),
+('Setor 2', 2),
+('Setor 1', 3);
+
+-- Inserir dados na tabela criatorios_usuarios
+INSERT INTO criatorios_usuarios (id_criatorio, id_usuario) VALUES
+(1, 1),
+(1, 2),
+(2, 2),
+(3, 3);
+
+-- Inserir dados na tabela peixes
+INSERT INTO peixes (nome, especie, idade, id_criatorio) VALUES
+('Peixe A', 'Tilápia', 2, 1),
+('Peixe B', 'Carpa', 1, 1),
+('Peixe C', 'Tilápia', 3, 2),
+('Peixe D', 'Dourado', 4, 3),
+('Peixe E', 'Tilápia', 2, 3);
+
+-- Inserir dados na tabela temperatura
+INSERT INTO temperatura (valor) VALUES
+(25.5),
+(26.0),
+(24.8);
+
+-- Inserir dados na tabela ph
+INSERT INTO ph (valor) VALUES
+(7.2),
+(7.4),
+(7.1);
+
+-- Inserir dados na tabela nivel_oxigenio
+INSERT INTO nivel_oxigenio (valor) VALUES
+(8.0),
+(7.8),
+(8.2);
+
+-- Inserir dados na tabela leituras
+INSERT INTO leituras (data_hora, id_sensor, id_temperatura, id_ph, id_nivel_oxigenio) VALUES
+('2024-05-20 10:00:00', 1, 1, 1, 1),
+('2024-05-20 11:00:00', 2, 2, 2, 2),
+('2024-05-20 12:00:00', 3, 3, 3, 3);
+
+
+
+
