@@ -3,12 +3,7 @@ const { CriatorioUsuario } = require("../data/dbContext");
 
 class CriatorioUsuarioRepository extends ICriatorioUsuarioRepository {
     constructor() {
-      super();
-      if (new.target === CriatorioUsuarioRepository) {
-        throw new Error(
-          "A classe CriatorioUsuarioRepository não pode ser instanciada diretamente."
-        );
-      }      
+      super(); 
     }
   
     async add(idCriatorio, periodo, idUsuario, idSensor) {
