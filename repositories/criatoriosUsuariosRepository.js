@@ -1,14 +1,14 @@
-const ICriatoriosUsuariosRepository = require("../interface/iCriatoriosUsuariosRepository");
+const ICriatorioUsuarioRepository = require("../interface/iCriatorioUsuarioRepository");
 const { CriatorioUsuario } = require("../data/dbContext");
 
-class CriatoriosUsuariosRepository extends ICriatoriosUsuariosRepository {
+class CriatorioUsuarioRepository extends ICriatorioUsuarioRepository {
     constructor() {
       super();
-      if (new.target === CriatoriosUsuariosRepository) {
+      if (new.target === CriatorioUsuarioRepository) {
         throw new Error(
-          "A classe CriatoriosUsuariosRepository não pode ser instanciada diretamente."
+          "A classe CriatorioUsuarioRepository não pode ser instanciada diretamente."
         );
-      }
+      }      
     }
   
     async add(idCriatorio, periodo, idUsuario, idSensor) {
@@ -63,4 +63,4 @@ class CriatoriosUsuariosRepository extends ICriatoriosUsuariosRepository {
     }
   }
   
-  module.exports = CriatoriosUsuariosRepository;
+  module.exports = CriatorioUsuarioRepository;
