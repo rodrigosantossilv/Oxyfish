@@ -1,21 +1,50 @@
-const { Nivel_Oxigenio } = require("../data/dbContext");
+const INivelOxigenioRepository = require("../interface/iNivelOxigenioRepository");
+const { NivelOxigenio } = require("../data/dbContext");
 
-class NivelOxigenioRepository {
-    async adicionar(valor) {
-        try {
-            const novoNivelOxigenio = await Nivel_Oxigenio.create({ valor });
-            return novoNivelOxigenio;
-        } catch (error) {
-            throw new Error('Erro ao adicionar nível de oxigênio: ' + error.message);
-        }
+class NivelOxigenioRepository extends INivelOxigenioRepository {
+    constructor() {
+        super();
     }
 
-    async buscar(id) {
+    async getById(id) {
         try {
-            const nivelOxigenio = await Nivel_Oxigenio.findByPk(id);
+            const nivelOxigenio = await NivelOxigenio.findByPk(id);
             return nivelOxigenio;
         } catch (error) {
             throw new Error('Erro ao buscar nível de oxigênio por ID: ' + error.message);
+        }
+    }
+
+    async getAll() {
+        try {
+            const niveisOxigenio = await NivelOxigenio.findAll();
+            return niveisOxigenio;
+        } catch (error) {
+            throw new Error('Erro ao buscar todos os níveis de oxigênio: ' + error.message);
+        }
+    }
+
+    async update(id, newData) {
+        try {
+            const nivelOxigenio = await NivelOxigenio.findByPk(id);
+            if (!nivelOxigenio) {
+                throw new Error('Nível de oxigênio não encontrado');
+            }
+            await nivelOxigenio.update(newData);
+        } catch (error) {
+            throw new Error('Erro ao atualizar nível de oxigênio: ' + error.message);
+        }
+    }
+
+    async delete(id) {
+        try {
+            const nivelOxigenio = await NivelOxigenio.findByPk(id);
+            if (!nivelOxigenio) {
+                throw new Error('Nível de oxigênio não encontrado');
+            }
+            await nivelOxigenio.destroy();
+        } catch (error) {
+            throw new Error('Erro ao deletar nível de oxigênio: ' + error.message);
         }
     }
 }

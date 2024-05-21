@@ -1,18 +1,9 @@
+const ILeituraRepository = require("../interface/iLeituraRepository");
 const { Leitura } = require("../data/dbContext");
 
-class LeituraRepository {
-    async add(idSensor, idTemperatura, idPh, idNivelOxigenio) {
-        try {
-            const novaLeitura = await Leitura.create({
-                idSensor: idSensor,
-                idTemperatura: idTemperatura,
-                idPh: idPh,
-                idNivelOxigenio: idNivelOxigenio,
-            });
-            return novaLeitura;
-        } catch (error) {
-            throw new Error('Erro ao adicionar leitura: ' + error.message);
-        }
+class LeituraRepository extends ILeituraRepository {
+    constructor() {
+      super(); 
     }
 
     async getById(id) {

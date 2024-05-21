@@ -1,21 +1,50 @@
+const IPhRepository = require("../interface/iPhRepository");
 const { Ph } = require("../data/dbContext");
 
-class PhRepository {
-    async adicionar(valor) {
-        try {
-            const novoPh = await Ph.create({ valor });
-            return novoPh;
-        } catch (error) {
-            throw new Error('Erro ao adicionar Ph: ' + error.message);
-        }
+class PhRepository extends IPhRepository {
+    constructor() {
+        super();
     }
 
-    async buscar(id) {
+    async getById(id) {
         try {
             const ph = await Ph.findByPk(id);
             return ph;
         } catch (error) {
             throw new Error('Erro ao buscar Ph por ID: ' + error.message);
+        }
+    }
+
+    async getAll() {
+        try {
+            const phs = await Ph.findAll();
+            return phs;
+        } catch (error) {
+            throw new Error('Erro ao buscar todos os Phs: ' + error.message);
+        }
+    }
+
+    async update(id, newData) {
+        try {
+            const ph = await Ph.findByPk(id);
+            if (!ph) {
+                throw new Error('Ph não encontrado');
+            }
+            await ph.update(newData);
+        } catch (error) {
+            throw new Error('Erro ao atualizar Ph: ' + error.message);
+        }
+    }
+
+    async delete(id) {
+        try {
+            const ph = await Ph.findByPk(id);
+            if (!ph) {
+                throw new Error('Ph não encontrado');
+            }
+            await ph.destroy();
+        } catch (error) {
+            throw new Error('Erro ao deletar Ph: ' + error.message);
         }
     }
 }
