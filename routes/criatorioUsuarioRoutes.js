@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const CriatorioUsuarioRepository = require('../repositories/criatoriosUsuariosRepository');
+const CriatorioUsuarioRepository = require('../repositories/criatorioUsuarioRepository');
 const CriatorioUsuarioApplication = require('../applications/criatorioUsuarioApplication');
 const CriatorioUsuarioFacade = require('../facade/criatorioUsuarioFacade');
 
