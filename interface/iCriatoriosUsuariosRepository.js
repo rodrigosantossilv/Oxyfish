@@ -1,20 +1,31 @@
 class ICriatoriosUsuariosRepository {
-    constructor() {
-      if (new.target === ICriatoriosUsuariosRepository) {
-        throw new Error(
-          "A interface IcriatorioRepository não pode ser instanciada."
-        );
-      }
-    }
-  
-    async adicionar(idCriatorio, periodo, idUsuario, idSensor) {
-      throw new Error("Este método deve ser implementado pelas classes concretas.");
-    }
-  
-    async buscar(id) {
-      throw new Error("Este método deve ser implementado pelas classes concretas.");
+  constructor() {
+    if (new.target === ICriatoriosUsuariosRepository) {
+      throw new Error(
+        "A interface ICriatoriosUsuariosRepository não pode ser instanciada."
+      );
     }
   }
-  
-  module.exports = ICriatoriosUsuariosRepository;
-  
+
+  async add(idCriatorio, periodo, idUsuario, idSensor) {
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+
+  async getById(id) {
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+
+  async getAll() {
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+
+  async update(id, newData) {
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+
+  async delete(id) {
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+}
+
+module.exports = ICriatoriosUsuariosRepository;
