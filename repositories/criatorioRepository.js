@@ -2,6 +2,10 @@ const ICriatorioRepository = require("../interface/iCriatorioRepository");
 const { Criatorio } = require("../data/dbContext");
 
 class CriatorioRepository extends ICriatorioRepository {
+  constructor() {
+    super();
+  }
+
   async add(criatorio) {
     try {
       const novoCriatorio = await Criatorio.create(criatorio);
