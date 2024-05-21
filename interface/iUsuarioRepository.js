@@ -7,22 +7,24 @@ class IUsuarioRepository {
     }
   }
 
-  async adicionar(usuario) {
-    throw new Error(
-      "Este método deve ser implementado pelas classes concretas."
-    );
+  async add(user) {
+    throw new Error("This method must be implemented by concrete classes.");
   }
 
-  async get(codigo) {
-    throw new Error(
-      "Este método deve ser implementado pelas classes concretas."
-    );
+  async getById(id) {
+    throw new Error("This method must be implemented by concrete classes.");
   }
 
   async getAll() {
-    throw new Error(
-      "Este método deve ser implementado pelas classes concretas."
-    );
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+
+  async update(id, newData) {
+    throw new Error("This method must be implemented by concrete classes.");
+  }
+
+  async delete(id) {
+    throw new Error("This method must be implemented by concrete classes.");
   }
 }
 
