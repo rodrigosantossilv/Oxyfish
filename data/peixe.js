@@ -1,11 +1,11 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports = (Sequelize, DataTypes) => {
-    const Peixe = Sequelize.define(
+module.exports = (sequelize, DataTypes) => {
+    const Peixe = sequelize.define(
         "peixe",
         {
             idPeixe: {
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
@@ -16,16 +16,12 @@ module.exports = (Sequelize, DataTypes) => {
                 allowNull: false,
             },
             idade: {
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 allowNull: false,
             },
             idCriatorio: {
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 allowNull: false,
-                references: {
-                    model: 'Criatorio', // Nome da tabela referenciada
-                    key: 'id' // Nome da chave primária na tabela referenciada
-                }
             },
         },
         { freezeTableName: true, timestamps: false }

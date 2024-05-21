@@ -5,7 +5,7 @@ module.exports = (Sequelize, DataTypes) => {
         "leitura",
         {
             idLeitura:{
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
@@ -17,36 +17,20 @@ module.exports = (Sequelize, DataTypes) => {
                 allowNull: false,
             },
             idSensor: {
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 allowNull: false,
-                references: {
-                    model: 'Sensor', // Nome da tabela referenciada
-                    key: 'id' // Nome da chave primária na tabela referenciada
-                }
             },
             idTemperatura:{
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 allowNull: false,
-                references:{
-                    model: 'Temperatura',
-                    key: 'id'
-                }
             },
             idPh:{
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 allowNull: false,
-                references:{
-                    model: 'Ph',
-                    key: 'id'
-                }
             },
             idNivelOxigenio:{
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.INTEGER,
                 allowNull: false,
-                references:{
-                    model: 'Nivel_Oxigenio',
-                    key: 'id'
-                }
             },
         },
         {freezeTableName: true, timestamps: false}
