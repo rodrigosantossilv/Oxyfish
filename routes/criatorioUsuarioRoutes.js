@@ -1,13 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const CriatorioUsuarioRepository = require('../repositories/criatorioUsuarioRepository');
-const CriatorioUsuarioApplication = require('../applications/criatorioUsuarioApplication');
-const CriatorioUsuarioFacade = require('../facade/criatorioUsuarioFacade');
-
-// Instanciando o repositório, aplicação e fachada do CriatorioUsuario
-const criatorioUsuarioRepository = new CriatorioUsuarioRepository();
-const criatorioUsuarioApplication = new CriatorioUsuarioApplication(criatorioUsuarioRepository);
-const criatorioUsuarioFacade = new CriatorioUsuarioFacade(criatorioUsuarioApplication);
 
 // Rota para adicionar um novo criatório usuário
 router.post('/api/criatorioUsuario', async (req, res) => {

@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const NivelOxigenioRepository = require('../repositories/nivelOxigenioRepository');
-const NivelOxigenioApplication = require('../applications/nivelOxigenioApplication');
-const NivelOxigenioFacade = require('../facade/nivelOxigenioFacade');
-
-const nivelOxigenioRepository = new NivelOxigenioRepository();
-const nivelOxigenioApplication = new NivelOxigenioApplication(nivelOxigenioRepository);
-const nivelOxigenioFacade = new NivelOxigenioFacade(nivelOxigenioApplication);
 
 // Rota para obter um nível de oxigênio pelo ID
 router.get('/api/nivelOxigenio/:id', async (req, res) => {

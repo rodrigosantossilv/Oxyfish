@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const LeituraRepository = require('../repositories/leituraRepository');
-const LeituraApplication = require('../applications/leituraApplication');
-const LeituraFacade = require('../facade/leituraFacade');
-
-const leituraRepository = new LeituraRepository();
-const leituraApplication = new LeituraApplication(leituraRepository);
-const leituraFacade = new LeituraFacade(leituraApplication);
 
 // Rota para adicionar uma nova leitura
 router.post('/api/leitura', async (req, res) => {

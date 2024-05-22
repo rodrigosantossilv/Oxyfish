@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const TemperaturaRepository = require('../repositories/temperaturaRepository');
-const TemperaturaApplication = require('../applications/temperaturaApplication');
-const TemperaturaFacade = require('../facade/temperaturaFacade');
-
-const temperaturaRepository = new TemperaturaRepository();
-const temperaturaApplication = new TemperaturaApplication(temperaturaRepository);
-const temperaturaFacade = new TemperaturaFacade(temperaturaApplication);
 
 // Rota para obter uma temperatura pelo ID
 router.get('/api/temperatura/:id', async (req, res) => {

@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const SensorRepository = require('../repositories/sensorRepository');
-const SensorApplication = require('../applications/sensorApplication');
-const SensorFacade = require('../facade/sensorFacade');
-
-const sensorRepository = new SensorRepository();
-const sensorApplication = new SensorApplication(sensorRepository);
-const sensorFacade = new SensorFacade(sensorApplication);
 
 // Rota para obter um sensor pelo ID
 router.get('/api/sensor/:id', async (req, res) => {

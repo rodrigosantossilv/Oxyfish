@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const PhRepository = require('../repositories/phRepository');
-const PhApplication = require('../applications/phApplication');
-const PhFacade = require('../facade/phFacade');
-
-const phRepository = new PhRepository();
-const phApplication = new PhApplication(phRepository);
-const phFacade = new PhFacade(phApplication);
 
 // Rota para obter um Ph pelo ID
 router.get('/api/ph/:id', async (req, res) => {

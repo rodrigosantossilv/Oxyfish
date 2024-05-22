@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const PeixeRepository = require('../repositories/peixeRepository');
-const PeixeApplication = require('../applications/peixeApplication');
-const PeixeFacade = require('../facade/peixeFacade');
-
-const peixeRepository = new PeixeRepository();
-const peixeApplication = new PeixeApplication(peixeRepository);
-const peixeFacade = new PeixeFacade(peixeApplication);
 
 // Rota para adicionar um novo peixe
 router.post('/api/peixe', async (req, res) => {

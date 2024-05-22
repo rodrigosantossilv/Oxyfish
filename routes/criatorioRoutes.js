@@ -1,12 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const CriatorioRepository = require('../repositories/criatorioRepository');
-const CriatorioApplication = require('../applications/criatorioApplication');
-const CriatorioFacade = require('../facade/criatorioFacade');
-
-const criatorioRepository = new CriatorioRepository();
-const criatorioApplication = new CriatorioApplication(criatorioRepository);
-const criatorioFacade = new CriatorioFacade(criatorioApplication);
 
 // Rota para obter todos os criatórios
 router.get('/api/criatorio', async (req, res) => {
