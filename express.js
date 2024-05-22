@@ -8,6 +8,7 @@ const peixeRoutes = require('./routes/peixeRoutes');
 const phRoutes = require('./routes/phRoutes');
 const sensorRoutes = require('./routes/sensorRoutes');
 const temperaturaRoutes = require('./routes/temperaturaRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +23,8 @@ app.use(peixeRoutes);
 app.use(phRoutes);
 app.use(sensorRoutes);
 app.use(temperaturaRoutes);
+app.use(usuarioRoutes);
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
