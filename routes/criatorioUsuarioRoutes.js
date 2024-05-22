@@ -1,63 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const criatorioUsuarioController = require('../controllers/criatorioUsuarioController');
 
 // Rota para adicionar um novo criatório usuário
-router.post('/api/criatorioUsuario', async (req, res) => {
-  try {
-    const { idCriatorio, periodo, idUsuario, idSensor } = req.body;
-    const novoCriatorioUsuario = await criatorioUsuarioFacade.add(idCriatorio, periodo, idUsuario, idSensor);
-    res.status(201).json(novoCriatorioUsuario);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+router.post('/api/criatorioUsuario', criatorioUsuarioController.addCriatorioUsuario);
 
 // Rota para obter todos os criatórios usuários
-router.get('/api/criatorioUsuario', async (req, res) => {
-  try {
-    const criatoriosUsuarios = await criatorioUsuarioFacade.getAll();
-    res.json(criatoriosUsuarios);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+router.get('/api/criatorioUsuario', criatorioUsuarioController.getAllCriatoriosUsuarios);
 
 // Rota para obter um criatório usuário pelo ID
-router.get('/api/criatorioUsuario/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    const criatorioUsuario = await criatorioUsuarioFacade.getById(id);
-    if (!criatorioUsuario) {
-      res.status(404).json({ message: 'Criatório usuário não encontrado' });
-    } else {
-      res.json(criatorioUsuario);
-    }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+router.get('/api/criatorioUsuario/:id', criatorioUsuarioController.getCriatorioUsuarioById);
 
 // Rota para atualizar um criatório usuário existente
-router.put('/api/criatorioUsuario/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    const newData = req.body;
-    await criatorioUsuarioFacade.update(id, newData);
-    res.status(200).json({ message: 'Criatório usuário atualizado com sucesso' });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+router.put('/api/criatorioUsuario/:id', criatorioUsuarioController.updateCriatorioUsuario);
 
 // Rota para deletar um criatório usuário existente
-router.delete('/api/criatorioUsuario/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    await criatorioUsuarioFacade.delete(id);
-    res.status(200).json({ message: 'Criatório usuário deletado com sucesso' });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+router.delete('/api/criatorioUsuario/:id', criatorioUsuarioController.deleteCriatorioUsuario);
 
 module.exports = router;
