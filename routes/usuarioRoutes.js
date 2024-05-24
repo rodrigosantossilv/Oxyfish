@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const usuarioController = require('../controllers/usuarioController');
-const isAuth = require("../middleware/is-auth"); // Importando o middleware isAuth
+const isAuth = require("../middleware/isAuth"); // Importando o middleware isAuth
 
 router.get('/api/usuario', isAuth, usuarioController.getAllUsuarios); // Protegendo a rota com isAuth
 router.get('/api/usuario/:id', isAuth, usuarioController.getUsuarioById); // Protegendo a rota com isAuth
