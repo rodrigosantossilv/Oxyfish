@@ -1,4 +1,4 @@
-const peixeFacade = require('../dependency/injection');
+const {peixeFacade} = require('../dependency/injection');
 
 const addPeixe = async (req, res) => {
     try {

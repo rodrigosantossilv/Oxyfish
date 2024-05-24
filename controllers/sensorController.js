@@ -1,6 +1,4 @@
-// controllers/sensorController.js
-
-const sensorFacade = require('../dependency/injection');
+const {sensorFacade} = require('../dependency/injection');
 
 const getSensorById = async (req, res) => {
     try {

@@ -1,4 +1,4 @@
-const criatorioFacade = require('../dependency/injection');
+const {criatorioFacade} = require('../dependency/injection');
 
 const getAllCriatorios = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-const phFacade = require('../dependency/injection');
+const {phFacade} = require('../dependency/injection');
 
 const getPhById = async (req, res) => {
     try {

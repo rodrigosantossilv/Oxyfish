@@ -1,4 +1,4 @@
-const nivelOxigenioFacade = require('../dependency/injection');
+const {nivelOxigenioFacade} = require('../dependency/injection');
 
 const getNivelOxigenioById = async (req, res) => {
   try {

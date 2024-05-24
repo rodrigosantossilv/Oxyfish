@@ -1,6 +1,4 @@
-// controllers/usuarioController.js
-
-const usuarioFacade = require('../dependency/injection');
+const {usuarioFacade} = require('../dependency/injection');
 
 const getAllUsuarios = async (req, res) => {
     try {

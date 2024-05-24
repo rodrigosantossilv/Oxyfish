@@ -1,4 +1,4 @@
-const leituraFacade = require('../dependency/injection'); // Ajuste o caminho conforme necessário
+const {leituraFacade} = require('../dependency/injection'); // Ajuste o caminho conforme necessário
 
 const getAllLeituras = async (req, res) => {
   try {

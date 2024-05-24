@@ -1,6 +1,4 @@
-// controllers/temperaturaController.js
-
-const temperaturaFacade = require('../dependency/injection');
+const {temperaturaFacade} = require('../dependency/injection');
 
 const getTemperaturaById = async (req, res) => {
     try {
