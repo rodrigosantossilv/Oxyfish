@@ -1,23 +1,23 @@
 const express = require('express');
+
 const criatorioRoutes = require('./routes/criatorioRoutes');
 const criatorioUsuarioRoutes = require('./routes/criatorioUsuarioRoutes');
 const leituraRoutes = require('./routes/leituraRoutes');
-const nivelOxigenioRoutes = require('./routes/nivelOxigenioRoutes'); // Importe as rotas de nível de oxigênio aqui
+const nivelOxigenioRoutes = require('./routes/nivelOxigenioRoutes');
 const peixeRoutes = require('./routes/peixeRoutes');
 const phRoutes = require('./routes/phRoutes');
 const sensorRoutes = require('./routes/sensorRoutes');
 const temperaturaRoutes = require('./routes/temperaturaRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
-const authRoutes = require('./routes/authRoutes'); // Importe as rotas de autenticação aqui
-const isAuth = require('./middleware/isAuth'); // Importe o middleware de autenticação aqui
+const authRoutes = require('./routes/authRoutes');
+const isAuth = require("./middleware/isAuth"); // Importando o middleware isAuth
 
-const app = express();
+const app = express();  
 const port = process.env.PORT || 3000;
 
-app.use(express.json()); // Middleware para parsear JSON
-app.use(authRoutes); // Use as rotas de autenticação
-app.use(isAuth); // Use o middleware de autenticação
-app.use(usuarioRoutes);  // Uso das rotas de usuário
+app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/usuario", isAuth, usuarioRoutes);
 app.use(criatorioRoutes);
 app.use(criatorioUsuarioRoutes);
 app.use(leituraRoutes);

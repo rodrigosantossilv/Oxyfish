@@ -9,7 +9,7 @@ exports.signup = (req, res) => {
   bcrypt
     .hash(senha, 12)
     .then((hashedPassword) => {
-      return usuarioFacade.create({ nome, email, senha: hashedPassword });
+      return usuarioFacade.add({ nome, email, senha: hashedPassword });
     })
     .then(() => {
       res.status(201).json({ message: "Usuário cadastrado com sucesso!" });
