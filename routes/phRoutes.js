@@ -4,9 +4,9 @@ const express = require('express');
 const router = express.Router();
 const phController = require('../controllers/phController');
 
-router.get('/api/ph/:id', phController.getPhById);
-router.get('/api/ph', phController.getAllPhs);
-router.put('/api/ph/:id', phController.updatePh);
-router.delete('/api/ph/:id', phController.deletePh);
+router.get('/:id', phController.getPhById);
+router.get('/', phController.getAllPhs);
+router.put('/:id', phController.updatePh);
+router.delete('/:id', phController.deletePh);
 
 module.exports = router;

@@ -3,18 +3,18 @@ const router = express.Router();
 const criatorioUsuarioController = require('../controllers/criatorioUsuarioController');
 
 // Rota para adicionar um novo criatório usuário
-router.post('/api/criatorioUsuario', criatorioUsuarioController.addCriatorioUsuario);
+router.post('/', criatorioUsuarioController.addCriatorioUsuario);
 
 // Rota para obter todos os criatórios usuários
-router.get('/api/criatorioUsuario', criatorioUsuarioController.getAllCriatoriosUsuarios);
+router.get('/', criatorioUsuarioController.getAllCriatoriosUsuarios);
 
 // Rota para obter um criatório usuário pelo ID
-router.get('/api/criatorioUsuario/:id', criatorioUsuarioController.getCriatorioUsuarioById);
+router.get('/:id', criatorioUsuarioController.getCriatorioUsuarioById);
 
 // Rota para atualizar um criatório usuário existente
-router.put('/api/criatorioUsuario/:id', criatorioUsuarioController.updateCriatorioUsuario);
+router.put('/:id', criatorioUsuarioController.updateCriatorioUsuario);
 
 // Rota para deletar um criatório usuário existente
-router.delete('/api/criatorioUsuario/:id', criatorioUsuarioController.deleteCriatorioUsuario);
+router.delete('/:id', criatorioUsuarioController.deleteCriatorioUsuario);
 
 module.exports = router;

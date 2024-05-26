@@ -18,14 +18,14 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/usuario", isAuth, usuarioRoutes);
-app.use(criatorioRoutes);
-app.use(criatorioUsuarioRoutes);
-app.use(leituraRoutes);
-app.use(nivelOxigenioRoutes);
-app.use(peixeRoutes);
-app.use(phRoutes);
-app.use(sensorRoutes);
-app.use(temperaturaRoutes);
+app.use("/api/criatorio",criatorioRoutes);
+app.use("/api/criatorioUsuario",criatorioUsuarioRoutes);
+app.use("/api/leitura",leituraRoutes);
+app.use("/api/nivelOxigenio",nivelOxigenioRoutes);
+app.use("/api/peixe",peixeRoutes);
+app.use("/api/ph",phRoutes);
+app.use("/api/sensor",sensorRoutes);
+app.use("/api/temperatura",temperaturaRoutes);
 
 
 app.listen(port, () => {
