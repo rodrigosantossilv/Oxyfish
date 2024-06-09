@@ -24,6 +24,15 @@ class PeixeRepository extends IPeixeRepository {
         }
     }
 
+    async add(data) {
+        try {
+            const newPeixe = await Peixe.create(data);
+            return newPeixe;
+        } catch (error) {
+            throw new Error('Erro ao criar novo peixe: ' + error.message);
+        }
+    }
+
     async update(id, newData) {
         try {
             const peixe = await Peixe.findByPk(id);

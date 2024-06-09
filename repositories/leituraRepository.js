@@ -3,7 +3,7 @@ const { Leitura } = require("../data/dbContext");
 
 class LeituraRepository extends ILeituraRepository {
     constructor() {
-      super(); 
+        super();
     }
 
     async getById(id) {
@@ -21,6 +21,15 @@ class LeituraRepository extends ILeituraRepository {
             return leituras;
         } catch (error) {
             throw new Error('Erro ao buscar todas as leituras: ' + error.message);
+        }
+    }
+
+    async add(data) {
+        try {
+            const newLeitura = await Leitura.create(data);
+            return newLeitura;
+        } catch (error) {
+            throw new Error('Erro ao criar nova leitura: ' + error.message);
         }
     }
 

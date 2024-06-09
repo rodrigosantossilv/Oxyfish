@@ -24,6 +24,15 @@ class PhRepository extends IPhRepository {
         }
     }
 
+    async add(data) {
+        try {
+            const newPh = await Ph.create(data);
+            return newPh;
+        } catch (error) {
+            throw new Error('Erro ao criar novo Ph: ' + error.message);
+        }
+    }
+
     async update(id, newData) {
         try {
             const ph = await Ph.findByPk(id);

@@ -24,6 +24,15 @@ class SensorRepository extends ISensorRepository {
         }
     }
 
+    async add(data) {
+        try {
+            const newSensor = await Sensor.create(data);
+            return newSensor;
+        } catch (error) {
+            throw new Error('Erro ao criar novo sensor: ' + error.message);
+        }
+    }
+
     async update(id, newData) {
         try {
             const sensor = await Sensor.findByPk(id);

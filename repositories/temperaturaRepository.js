@@ -24,6 +24,15 @@ class TemperaturaRepository extends ITemperaturaRepository {
         }
     }
 
+    async add(data) {
+        try {
+            const newTemperatura = await Temperatura.create(data);
+            return newTemperatura;
+        } catch (error) {
+            throw new Error('Erro ao criar nova temperatura: ' + error.message);
+        }
+    }
+
     async update(id, newData) {
         try {
             const temperatura = await Temperatura.findByPk(id);

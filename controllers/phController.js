@@ -1,4 +1,4 @@
-const {phFacade} = require('../dependency/injection');
+const { phFacade } = require('../dependency/injection');
 
 const getPhById = async (req, res) => {
     try {
@@ -18,6 +18,16 @@ const getAllPhs = async (req, res) => {
     try {
         const phs = await phFacade.getAll();
         res.json(phs);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const addPh = async (req, res) => {
+    try {
+        const data = req.body;
+        const novoPh = await phFacade.add(data);
+        res.status(201).json(novoPh);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -47,6 +57,7 @@ const deletePh = async (req, res) => {
 module.exports = {
     getPhById,
     getAllPhs,
+    addPh,
     updatePh,
     deletePh,
 };

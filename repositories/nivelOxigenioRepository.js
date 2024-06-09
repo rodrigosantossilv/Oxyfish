@@ -24,6 +24,15 @@ class NivelOxigenioRepository extends INivelOxigenioRepository {
         }
     }
 
+    async add(data) {
+        try {
+            const newNivelOxigenio = await NivelOxigenio.create(data);
+            return newNivelOxigenio;
+        } catch (error) {
+            throw new Error('Erro ao criar novo nível de oxigênio: ' + error.message);
+        }
+    }
+
     async update(id, newData) {
         try {
             const nivelOxigenio = await NivelOxigenio.findByPk(id);

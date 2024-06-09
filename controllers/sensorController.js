@@ -1,4 +1,4 @@
-const {sensorFacade} = require('../dependency/injection');
+const { sensorFacade } = require('../dependency/injection');
 
 const getSensorById = async (req, res) => {
     try {
@@ -18,6 +18,16 @@ const getAllSensors = async (req, res) => {
     try {
         const sensors = await sensorFacade.getAll();
         res.json(sensors);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const addSensor = async (req, res) => {
+    try {
+        const data = req.body;
+        const novoSensor = await sensorFacade.add(data);
+        res.status(201).json(novoSensor);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -47,6 +57,7 @@ const deleteSensor = async (req, res) => {
 module.exports = {
     getSensorById,
     getAllSensors,
+    addSensor,
     updateSensor,
     deleteSensor,
 };
