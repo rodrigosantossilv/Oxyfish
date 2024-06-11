@@ -1,7 +1,7 @@
-class Temperatura {
+class NivelOxigenio {
   constructor(valor) {
       this.valor = valor;
   }
 }
 
-module.exports = Temperatura;
+module.exports = NivelOxigenio;

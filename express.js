@@ -10,7 +10,10 @@ const sensorRoutes = require('./routes/sensorRoutes');
 const temperaturaRoutes = require('./routes/temperaturaRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const authRoutes = require('./routes/authRoutes');
+const alarmeRoutes = require('./routes/alarmeRoutes');
 const isAuth = require("./middleware/isAuth"); // Importando o middleware isAuth
+
+
 
 const app = express();  
 const port = process.env.PORT || 3000;
@@ -25,6 +28,7 @@ app.use("/api/nivelOxigenio",nivelOxigenioRoutes);
 app.use("/api/peixe",peixeRoutes);
 app.use("/api/ph",phRoutes);
 app.use("/api/sensor",sensorRoutes);
+app.use('/api/alarmes', alarmeRoutes);
 app.use("/api/temperatura",temperaturaRoutes);
 
 
